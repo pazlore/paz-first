@@ -13,12 +13,8 @@ func enter():
 func update (_delta):
 	pass 
 	
-func _physics_process(delta):
+func physics_update(_delta):
 	pass
 func exit():
 	pass
-
-
-func _physics_update(delta):
-	jugador.move_and_slide() 
 	

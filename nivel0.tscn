@@ -1,8 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://bfnauuqb68l4n"]
+[gd_scene load_steps=3 format=3 uid="uid://bfnauuqb68l4n"]
 
-[ext_resource type="PackedScene" uid="uid://cu3clndd2aojh" path="res://Escenas/componentes1/componentes/jugador.tscn" id="1_mk8gj"]
+[ext_resource type="PackedScene" uid="uid://cu3clndd2aojh" path="res://Escenas/Componentes/Jugador/jugador.tscn" id="1_mk8gj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mk8gj"]
+size = Vector2(648, 32)
 
 [node name="Nivel 0" type="Node2D"]
 
 [node name="jugador" parent="." instance=ExtResource("1_mk8gj")]
-position = Vector2(187, 86)
+position = Vector2(88.525, 0)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(9.685, 120)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(314, 7.575)
+shape = SubResource("RectangleShape2D_mk8gj")

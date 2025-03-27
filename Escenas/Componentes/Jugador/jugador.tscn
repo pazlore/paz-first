@@ -1,13 +1,14 @@
-[gd_scene load_steps=41 format=3 uid="uid://cu3clndd2aojh"]
+[gd_scene load_steps=42 format=3 uid="uid://cu3clndd2aojh"]
 
-[ext_resource type="Script" uid="uid://bvkf2v1gtrae7" path="res://Escenas/componentes1/componentes/jugador.gd" id="1_iiqtd"]
+[ext_resource type="Script" uid="uid://bvkf2v1gtrae7" path="res://Escenas/Componentes/Jugador/jugador.gd" id="1_iiqtd"]
 [ext_resource type="Texture2D" uid="uid://dvj05jiydyygu" path="res://Assets/texturas/jugador/attack.png" id="2_tjipt"]
 [ext_resource type="Texture2D" uid="uid://b6mwpw13wdkh6" path="res://Assets/texturas/jugador/jump.png" id="3_5iixo"]
 [ext_resource type="Texture2D" uid="uid://df8mpjikd3prx" path="res://Assets/texturas/jugador/run.png" id="4_d18du"]
 [ext_resource type="Texture2D" uid="uid://d02mx1a8hijfq" path="res://Assets/texturas/jugador/idle.png" id="5_oqm7w"]
-[ext_resource type="Script" uid="uid://uer4gorus1ko" path="res://Escenas/componentes1/componentes/maquina_estado/maquina_estado.gd" id="6_d18du"]
-[ext_resource type="Script" uid="uid://b36l1kr4rsdf8" path="res://Escenas/componentes1/componentes/Estados/estado.gd" id="7_d18du"]
-[ext_resource type="Script" uid="uid://r5lk0ie0rliw" path="res://Escenas/componentes1/componentes/maquina_estado/estado.gd" id="8_50iav"]
+[ext_resource type="Script" uid="uid://uer4gorus1ko" path="res://Escenas/Componentes/Jugador/maquina_estado/maquina_estado.gd" id="6_d18du"]
+[ext_resource type="Script" uid="uid://b36l1kr4rsdf8" path="res://Escenas/Componentes/Jugador/Estados/estado.gd" id="7_d18du"]
+[ext_resource type="Script" uid="uid://pnchovrppj3s" path="res://Escenas/Componentes/Jugador/Estados/cayendo.gd" id="8_50iav"]
+[ext_resource type="Script" uid="uid://7ewucva3xb36" path="res://Escenas/Componentes/Jugador/Estados/Corriendo.gd" id="9_n06o3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iiqtd"]
 size = Vector2(18, 48)
@@ -145,7 +146,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_0ei5s")
 }],
 "loop": true,
-"name": &"atacando",
+"name": &"Atacando",
 "speed": 5.0
 }, {
 "frames": [{
@@ -174,7 +175,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_rycqe")
 }],
 "loop": true,
-"name": &"cayendo",
+"name": &"Cayendo",
 "speed": 5.0
 }, {
 "frames": [{
@@ -203,7 +204,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_v70rv")
 }],
 "loop": true,
-"name": &"corriendo",
+"name": &"Corriendo",
 "speed": 5.0
 }, {
 "frames": [{
@@ -220,7 +221,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_ardq0")
 }],
 "loop": true,
-"name": &"quieto",
+"name": &"Quieto",
 "speed": 3.0
 }, {
 "frames": [{
@@ -246,12 +247,14 @@ animations = [{
 "texture": SubResource("AtlasTexture_qt2et")
 }],
 "loop": true,
-"name": &"saltando",
+"name": &"Saltando",
 "speed": 5.0
 }]
 
-[node name="jugador" type="CharacterBody2D"]
+[node name="jugador" type="CharacterBody2D" node_paths=PackedStringArray("sprite")]
 script = ExtResource("1_iiqtd")
+speed = 80.0
+sprite = NodePath("AnimatedSprite2D")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -260,7 +263,7 @@ shape = SubResource("RectangleShape2D_iiqtd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_buye6")
-animation = &"atacando"
+animation = &"Saltando"
 
 [node name="MaquinaEstado" type="Node" parent="." node_paths=PackedStringArray("jugador")]
 script = ExtResource("6_d18du")
@@ -272,4 +275,8 @@ metadata/_custom_type_script = "uid://r5lk0ie0rliw"
 
 [node name="Cayendo" type="Node" parent="MaquinaEstado"]
 script = ExtResource("8_50iav")
+metadata/_custom_type_script = "uid://r5lk0ie0rliw"
+
+[node name="Corriendo" type="Node" parent="MaquinaEstado"]
+script = ExtResource("9_n06o3")
 metadata/_custom_type_script = "uid://r5lk0ie0rliw"

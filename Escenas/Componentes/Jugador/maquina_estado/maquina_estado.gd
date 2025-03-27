@@ -16,7 +16,7 @@ func _process(delta):
 func _physics_process(delta):
 	estado_actual.physics_update(delta)
 
-func ir_a_siguiente_estado(estado_siguiente : String):
+func ir_a_estado_siguiente(estado_siguiente : String):
 	estado_actual.exit()
 	estado_actual = get_node(estado_siguiente)
 	estado_actual.enter()
