@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://cu3clndd2aojh"]
+[gd_scene load_steps=45 format=3 uid="uid://cu3clndd2aojh"]
 
 [ext_resource type="Script" uid="uid://bvkf2v1gtrae7" path="res://Escenas/Componentes/Jugador/jugador.gd" id="1_iiqtd"]
 [ext_resource type="Texture2D" uid="uid://dvj05jiydyygu" path="res://Assets/texturas/jugador/attack.png" id="2_tjipt"]
@@ -9,6 +9,9 @@
 [ext_resource type="Script" uid="uid://b36l1kr4rsdf8" path="res://Escenas/Componentes/Jugador/Estados/estado.gd" id="7_d18du"]
 [ext_resource type="Script" uid="uid://pnchovrppj3s" path="res://Escenas/Componentes/Jugador/Estados/cayendo.gd" id="8_50iav"]
 [ext_resource type="Script" uid="uid://7ewucva3xb36" path="res://Escenas/Componentes/Jugador/Estados/Corriendo.gd" id="9_n06o3"]
+[ext_resource type="Script" uid="uid://b4fk7tqe15ajt" path="res://Escenas/Componentes/Jugador/Estados/saltar.gd" id="10_cop5c"]
+[ext_resource type="PackedScene" uid="uid://kldgsjw27g38" path="res://Escenas/Control/HUB/hud.tscn" id="11_h171t"]
+[ext_resource type="Script" uid="uid://cv3vev4maj5u6" path="res://Escenas/Componentes/Jugador/Estados/atacando.gd" id="11_wswnc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iiqtd"]
 size = Vector2(18, 48)
@@ -252,8 +255,12 @@ animations = [{
 }]
 
 [node name="jugador" type="CharacterBody2D" node_paths=PackedStringArray("sprite")]
+position = Vector2(436, 82)
 script = ExtResource("1_iiqtd")
 speed = 80.0
+gravedad = null
+impulso_salto = null
+friccion_salto = null
 sprite = NodePath("AnimatedSprite2D")
 metadata/_edit_group_ = true
 
@@ -263,7 +270,7 @@ shape = SubResource("RectangleShape2D_iiqtd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_buye6")
-animation = &"Saltando"
+animation = &"Atacando"
 
 [node name="MaquinaEstado" type="Node" parent="." node_paths=PackedStringArray("jugador")]
 script = ExtResource("6_d18du")
@@ -280,3 +287,29 @@ metadata/_custom_type_script = "uid://r5lk0ie0rliw"
 [node name="Corriendo" type="Node" parent="MaquinaEstado"]
 script = ExtResource("9_n06o3")
 metadata/_custom_type_script = "uid://r5lk0ie0rliw"
+
+[node name="Saltar" type="Node" parent="MaquinaEstado"]
+script = ExtResource("10_cop5c")
+metadata/_custom_type_script = "uid://r5lk0ie0rliw"
+
+[node name="atacando" type="Node" parent="MaquinaEstado"]
+script = ExtResource("11_wswnc")
+metadata/_custom_type_script = "uid://r5lk0ie0rliw"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="CanvasLayer" instance=ExtResource("11_h171t")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_left = 0
+limit_top = 0
+limit_right = 1170
+limit_bottom = 0
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+editor_draw_drag_margin = true
+
+[node name="AttackHitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackHitbox"]

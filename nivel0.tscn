@@ -1,6 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bfnauuqb68l4n"]
+[gd_scene load_steps=6 format=3 uid="uid://bfnauuqb68l4n"]
 
 [ext_resource type="PackedScene" uid="uid://cu3clndd2aojh" path="res://Escenas/Componentes/Jugador/jugador.tscn" id="1_mk8gj"]
+[ext_resource type="Texture2D" uid="uid://bt1cdwi11sblm" path="res://Assets/texturas/fondos/bg_1.png" id="2_wmlxa"]
+[ext_resource type="Texture2D" uid="uid://ctp65tnww4f8h" path="res://Assets/texturas/fondos/bg_2.png" id="3_hjuvm"]
+[ext_resource type="Texture2D" uid="uid://chbiusokw623g" path="res://Assets/texturas/fondos/bg_4.png" id="4_3213g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mk8gj"]
 size = Vector2(648, 32)
@@ -17,3 +20,23 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(314, 7.575)
 shape = SubResource("RectangleShape2D_mk8gj")
+
+[node name="fondo" type="ParallaxBackground" parent="."]
+
+[node name="cielo" type="ParallaxLayer" parent="fondo"]
+
+[node name="Sprite2D" type="Sprite2D" parent="fondo/cielo"]
+texture = ExtResource("2_wmlxa")
+offset = Vector2(533.155, 264.29)
+
+[node name="cuidad" type="ParallaxLayer" parent="fondo"]
+
+[node name="cosas" type="Sprite2D" parent="fondo/cuidad"]
+texture = ExtResource("3_hjuvm")
+offset = Vector2(550, 299.96)
+
+[node name="ciudad2" type="ParallaxLayer" parent="fondo"]
+
+[node name="cosas2" type="Sprite2D" parent="fondo/ciudad2"]
+texture = ExtResource("4_3213g")
+offset = Vector2(550, 289.815)
