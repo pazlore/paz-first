@@ -10,10 +10,14 @@ config_version=5
 
 [application]
 
-config/name="Nuevo Proyecto de Juego"
+config/name="Juego de M.PAZ"
 run/main_scene="uid://cu3clndd2aojh"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://Assets/icon.svg"
+
+[global_group]
+
+Enemigos=""
 
 [input]
 

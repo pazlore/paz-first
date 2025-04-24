@@ -1,9 +1,5 @@
 #CORRIENDO
 extends Estado
-
-
-
-
 func physics_update(_delta):
 	jugador.velocity.y = jugador.gravedad 
 	jugador.move_and_slide()
@@ -13,11 +9,11 @@ func enter():
 
 func _physics_process(delta):
 	if Input.is_action_pressed("mover_derecha"):
-		jugador.velocity.x = jugador.speed
+		jugador.velocity.x = jugador.velocidad
 		jugador.move_and_slide()
 		jugador.sprite.flip_h = false
 	elif Input.is_action_pressed("mover_izquierda"):
-		jugador.velocity.x = -jugador.speed
+		jugador.velocity.x = -jugador.velocidad
 		jugador.move_and_slide()
 		jugador.sprite.flip_h = true
 	else:

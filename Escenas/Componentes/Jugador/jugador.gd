@@ -3,11 +3,13 @@
 extends CharacterBody2D
 
 
-@export var speed = 20.0
+@export var velocidad = 100.0
 @export var gravedad = 250.0
 @export var sprite : AnimatedSprite2D
 @export var impulso_salto = 100
 @export var friccion_salto = 10
+
+@export var hud : Control 
 
 var vida : int
 var max_vida : int = 500
@@ -17,7 +19,7 @@ var monedas : int
 
 func _ready():
 	inicializar_jugador()
-	actualizar_hub()
+	actualizar_hud()
 
 func _physics_process(delta):
 	pass

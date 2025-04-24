@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://df8mpjikd3prx" path="res://Assets/texturas/jugador/run.png" id="4_d18du"]
 [ext_resource type="Texture2D" uid="uid://d02mx1a8hijfq" path="res://Assets/texturas/jugador/idle.png" id="5_oqm7w"]
 [ext_resource type="Script" uid="uid://uer4gorus1ko" path="res://Escenas/Componentes/Jugador/maquina_estado/maquina_estado.gd" id="6_d18du"]
-[ext_resource type="Script" uid="uid://b36l1kr4rsdf8" path="res://Escenas/Componentes/Jugador/Estados/quieto.gd" id="7_d18du"]
+[ext_resource type="Script" uid="uid://b36l1kr4rsdf8" path="res://Escenas/Componentes/Jugador/Estados/estado.gd" id="7_d18du"]
 [ext_resource type="Script" uid="uid://pnchovrppj3s" path="res://Escenas/Componentes/Jugador/Estados/cayendo.gd" id="8_50iav"]
 [ext_resource type="Script" uid="uid://7ewucva3xb36" path="res://Escenas/Componentes/Jugador/Estados/Corriendo.gd" id="9_n06o3"]
 [ext_resource type="Script" uid="uid://b4fk7tqe15ajt" path="res://Escenas/Componentes/Jugador/Estados/saltar.gd" id="10_cop5c"]
@@ -148,7 +148,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_0ei5s")
 }],
-"loop": false,
+"loop": true,
 "name": &"Atacando",
 "speed": 5.0
 }, {
@@ -257,23 +257,23 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_wswnc"]
 radius = 16.04
 
-[node name="jugador" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "hud")]
+[node name="jugador" type="CharacterBody2D" node_paths=PackedStringArray("sprite")]
 position = Vector2(436, 82)
 script = ExtResource("1_iiqtd")
+speed = 80.0
+gravedad = null
+impulso_salto = null
+friccion_salto = null
 sprite = NodePath("AnimatedSprite2D")
-hud = NodePath("CanvasLayer/HUD")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-rotation = -3.14159
-skew = -0.0279253
+position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_iiqtd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_buye6")
 animation = &"Atacando"
-frame = 2
-frame_progress = 1.0
 
 [node name="MaquinaEstado" type="Node" parent="." node_paths=PackedStringArray("jugador")]
 script = ExtResource("6_d18du")
