@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://qinkjqgrvhif"]
+
+[ext_resource type="PackedScene" uid="uid://kec6rnm108k4" path="res://escenas/componentes/jugador/jugador.tscn" id="1_8pfdu"]
+[ext_resource type="Texture2D" uid="uid://3l2oshhdgy05" path="res://assets/texturas/icon.svg" id="2_003vn"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_r2lhu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_003vn"]
+size = Vector2(32, 32)
+
+[node name="Nivel0" type="Node2D"]
+
+[node name="Jugador" parent="." instance=ExtResource("1_8pfdu")]
+position = Vector2(216, 529)
+velocidad = 1000.0
+impulso_salto = 250.0
+friccion_salto = 10.0
+gravedad = 450.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(582, 607.5)
+scale = Vector2(9.04688, 0.617188)
+texture = ExtResource("2_003vn")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
+position = Vector2(-1.32642, -60.7595)
+shape = SubResource("WorldBoundaryShape2D_r2lhu")
+
+[node name="Enemigo" type="CharacterBody2D" parent="." groups=["Enemigos"]]
+position = Vector2(311, 518)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemigo"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_003vn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemigo"]
+shape = SubResource("RectangleShape2D_003vn")

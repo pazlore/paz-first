@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1je3x03edk2i"
-path="res://.godot/imported/star_particle.png-83941d1bec64207521ad1d664c97c93c.ctex"
+uid="uid://dm6huu0o251wb"
+path="res://.godot/imported/star_particle.png-7d89fc526552f65d7b1834d278382c99.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/texturas/jugador/star_particle.png"
-dest_files=["res://.godot/imported/star_particle.png-83941d1bec64207521ad1d664c97c93c.ctex"]
+source_file="res://assets/texturas/jugador/star_particle.png"
+dest_files=["res://.godot/imported/star_particle.png-7d89fc526552f65d7b1834d278382c99.ctex"]
 
 [params]
 

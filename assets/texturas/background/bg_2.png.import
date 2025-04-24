@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpcymhtcf1cd8"
-path="res://.godot/imported/Tiburon.jpeg-dc8530a682be50cfec12002f50391823.ctex"
+uid="uid://bu1b65f3d7oco"
+path="res://.godot/imported/bg_2.png-87b6b913f0a617a593ef8ce8f9e31b9f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/texturas/SpritesFotos/Tiburon.jpeg"
-dest_files=["res://.godot/imported/Tiburon.jpeg-dc8530a682be50cfec12002f50391823.ctex"]
+source_file="res://assets/texturas/background/bg_2.png"
+dest_files=["res://.godot/imported/bg_2.png-87b6b913f0a617a593ef8ce8f9e31b9f.ctex"]
 
 [params]
 

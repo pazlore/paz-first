@@ -1,37 +1,27 @@
-[gd_scene load_steps=9 format=3 uid="uid://kldgsjw27g38"]
+[gd_scene load_steps=7 format=3 uid="uid://ctb7yow20eyxp"]
 
-[ext_resource type="Texture2D" uid="uid://dtn178wbi5xe" path="res://Assets/icon.svg" id="1_edpdi"]
-[ext_resource type="Script" uid="uid://r8ki3tdnj4bq" path="res://Escenas/Control/HUB/hud.gd" id="1_niw88"]
+[ext_resource type="Texture2D" uid="uid://3l2oshhdgy05" path="res://assets/texturas/icon.svg" id="1_lxigr"]
+[ext_resource type="Script" uid="uid://dv6o7sjlg84al" path="res://escenas/componentes/ui/hud/hud.gd" id="1_u1fp6"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tppc2"]
-bg_color = Color(0.658824, 0.592157, 0.458824, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_edpdi"]
-bg_color = Color(3.70607e-06, 0.727302, 0.120233, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ch5vc"]
+bg_color = Color(0, 1, 0, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[sub_resource type="LabelSettings" id="LabelSettings_niw88"]
-line_spacing = 6.0
-font_size = 20
-font_color = Color(8.66354e-07, 0.642404, 0.348086, 1)
+[sub_resource type="LabelSettings" id="LabelSettings_lxigr"]
+font_size = 24
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_niw88"]
-bg_color = Color(0.657949, 0.592621, 0.458439, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x7p08"]
-bg_color = Color(0.396071, 0.602658, 0.914211, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u1fp6"]
+bg_color = Color(0, 0.431373, 1, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[sub_resource type="LabelSettings" id="LabelSettings_x7p08"]
-line_spacing = 6.0
-font_size = 20
-font_color = Color(0.437725, 0.581479, 0.929726, 1)
+[sub_resource type="LabelSettings" id="LabelSettings_4svo6"]
+font_size = 24
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -40,7 +30,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_niw88")
+script = ExtResource("1_u1fp6")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -58,40 +48,37 @@ theme_override_constants/margin_bottom = 16
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme_override_constants/separation = 8
 
 [node name="VidaContainer" type="HBoxContainer" parent="MarginContainer/BarrasContainer"]
 layout_mode = 2
 
 [node name="ProgressBar" type="ProgressBar" parent="MarginContainer/BarrasContainer/VidaContainer"]
-custom_minimum_size = Vector2(290, 32)
+custom_minimum_size = Vector2(256, 32)
 layout_mode = 2
-size_flags_horizontal = 0
-theme_override_styles/background = SubResource("StyleBoxFlat_tppc2")
-theme_override_styles/fill = SubResource("StyleBoxFlat_edpdi")
-value = 45.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_ch5vc")
+value = 50.0
 show_percentage = false
 
 [node name="Label" type="Label" parent="MarginContainer/BarrasContainer/VidaContainer"]
 layout_mode = 2
 text = "32"
-label_settings = SubResource("LabelSettings_niw88")
+label_settings = SubResource("LabelSettings_lxigr")
 
 [node name="MagiaContainer" type="HBoxContainer" parent="MarginContainer/BarrasContainer"]
 layout_mode = 2
 
 [node name="ProgressBar2" type="ProgressBar" parent="MarginContainer/BarrasContainer/MagiaContainer"]
-custom_minimum_size = Vector2(290, 32)
+custom_minimum_size = Vector2(256, 32)
 layout_mode = 2
-size_flags_horizontal = 0
-theme_override_styles/background = SubResource("StyleBoxFlat_niw88")
-theme_override_styles/fill = SubResource("StyleBoxFlat_x7p08")
-value = 60.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_u1fp6")
+value = 50.0
 show_percentage = false
 
-[node name="Label2" type="Label" parent="MarginContainer/BarrasContainer/MagiaContainer"]
+[node name="Label" type="Label" parent="MarginContainer/BarrasContainer/MagiaContainer"]
 layout_mode = 2
 text = "32"
-label_settings = SubResource("LabelSettings_x7p08")
+label_settings = SubResource("LabelSettings_4svo6")
 
 [node name="MonedasContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -101,9 +88,9 @@ size_flags_vertical = 8
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/MonedasContainer"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
-texture = ExtResource("1_edpdi")
+texture = ExtResource("1_lxigr")
 expand_mode = 5
 
 [node name="Label" type="Label" parent="MarginContainer/MonedasContainer"]
 layout_mode = 2
-text = "60$"
+text = "60"

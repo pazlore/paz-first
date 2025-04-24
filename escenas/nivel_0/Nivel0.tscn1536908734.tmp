@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://qinkjqgrvhif"]
+
+[ext_resource type="PackedScene" uid="uid://kec6rnm108k4" path="res://escenas/componentes/jugador/jugador.tscn" id="1_8pfdu"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8pfdu"]
+
+[node name="Nivel0" type="Node2D"]
+
+[node name="Jugador" parent="." instance=ExtResource("1_8pfdu")]
+position = Vector2(606, 378)
+speed = 60
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(151, 545)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_8pfdu")

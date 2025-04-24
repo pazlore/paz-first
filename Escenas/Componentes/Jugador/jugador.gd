@@ -1,15 +1,13 @@
-#JUGADOR 
-
 extends CharacterBody2D
 
 
-@export var velocidad = 100.0
-@export var gravedad = 250.0
+@export var velocidad : float = 250
+@export var impulso_salto : float = 100
+@export var friccion_salto : float = 1
+@export var gravedad : float = 100
 @export var sprite : AnimatedSprite2D
-@export var impulso_salto = 100
-@export var friccion_salto = 10
 
-@export var hud : Control 
+@export var hud : Control
 
 var vida : int
 var max_vida : int = 500
@@ -32,9 +30,9 @@ func inicializar_jugador():
 func morir():
 	queue_free()
 
-func herir (cantidad : int):
+func herir(cantidad : int):
 	vida -= cantidad
-	if vida <= 0: 
+	if vida <= 0:
 		morir()
 
 func actualizar_hud():
@@ -44,5 +42,3 @@ func actualizar_hud():
 	hud.max_magia = max_magia
 	hud.monedas = monedas
 	hud.actualizar_valores()
-
-   

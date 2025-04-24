@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cym7cvk2mg1gn"
-path="res://.godot/imported/smoke_particle.png-074aec81f9e595c15ecf4e1fc6c356b4.ctex"
+uid="uid://bt3m6sctwrtfs"
+path="res://.godot/imported/smoke_particle.png-9e1323e8da5cb9c70922464509a0c395.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/texturas/jugador/smoke_particle.png"
-dest_files=["res://.godot/imported/smoke_particle.png-074aec81f9e595c15ecf4e1fc6c356b4.ctex"]
+source_file="res://assets/texturas/jugador/smoke_particle.png"
+dest_files=["res://.godot/imported/smoke_particle.png-9e1323e8da5cb9c70922464509a0c395.ctex"]
 
 [params]
 
