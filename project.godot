@@ -10,14 +10,19 @@ config_version=5
 
 [application]
 
-config/name="Nuevo Proyecto de Juego"
+config/name="Juego De M.P. Lorenzo :D"
 run/main_scene="uid://qinkjqgrvhif"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://assets/texturas/icon.svg"
 
+[autoload]
+
+Globales="*res://escenas/globales/globales.gd"
+
 [global_group]
 
 Enemigos=""
+Jugador=""
 
 [input]
 
