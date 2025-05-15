@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://qinkjqgrvhif"]
+[gd_scene load_steps=16 format=3 uid="uid://qinkjqgrvhif"]
 
 [ext_resource type="PackedScene" uid="uid://kec6rnm108k4" path="res://escenas/componentes/jugador/jugador.tscn" id="1_8pfdu"]
 [ext_resource type="Script" uid="uid://xh12addxiocf" path="res://escenas/nivel_0/save_manager.gd" id="1_sp6s4"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://b8v4h8bnwq1eb" path="res://assets/texturas/fotos/pasto.jpeg" id="3_r2lhu"]
 [ext_resource type="Script" uid="uid://eel5bwwa1e00" path="res://escenas/nivel_0/moneda.gd" id="4_bw107"]
 [ext_resource type="Texture2D" uid="uid://bl3cofh07rq87" path="res://assets/texturas/fotos/amongus.jpeg" id="6_sp6s4"]
+[ext_resource type="Script" uid="uid://d0ip2acfdsoxd" path="res://escenas/nivel_0/enemigo_cae.gd" id="8_piwy4"]
+[ext_resource type="Texture2D" uid="uid://dke2piab4ppla" path="res://assets/texturas/fotos/ellis ld.jpg" id="8_v3xqc"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_r2lhu"]
 distance = 18.9453
@@ -20,6 +22,12 @@ size = Vector2(43, 32)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_18kb5"]
 size = Vector2(37.75, 28)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_piwy4"]
+size = Vector2(89.5, 62)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mg017"]
+size = Vector2(83, 55)
+
 [node name="Nivel0" type="Node2D"]
 script = ExtResource("1_sp6s4")
 
@@ -30,14 +38,14 @@ impulso_salto = 250.0
 friccion_salto = 10.0
 gravedad = 450.0
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Piso" type="Sprite2D" parent="."]
 position = Vector2(582, 612.4)
 scale = Vector2(9.04688, 0.55706)
 texture = ExtResource("3_r2lhu")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Piso"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Piso/StaticBody2D"]
 position = Vector2(-1.32642, -60.7595)
 shape = SubResource("WorldBoundaryShape2D_r2lhu")
 
@@ -79,5 +87,30 @@ position = Vector2(84.875, 517)
 shape = SubResource("RectangleShape2D_18kb5")
 debug_color = Color(0.498262, 0.581844, 1.92523e-07, 0.42)
 metadata/_edit_group_ = true
+
+[node name="Enemigo_2" type="CharacterBody2D" parent="." node_paths=PackedStringArray("hitbox")]
+position = Vector2(215, -90)
+script = ExtResource("8_piwy4")
+hitbox = NodePath("Hitbox")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemigo_2"]
+position = Vector2(465, 514)
+scale = Vector2(0.145, 0.0966667)
+texture = ExtResource("8_v3xqc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemigo_2"]
+position = Vector2(463.25, 515)
+shape = SubResource("RectangleShape2D_piwy4")
+
+[node name="Hitbox" type="Area2D" parent="Enemigo_2"]
+position = Vector2(156, 321)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemigo_2/Hitbox"]
+position = Vector2(306.5, 195.5)
+shape = SubResource("RectangleShape2D_mg017")
+debug_color = Color(0.99501, 0, 0.212632, 0.42)
+
+[node name="Timer" type="Timer" parent="Enemigo_2"]
 
 [connection signal="timeout" from="Enemigo/Timer Ataque" to="Enemigo" method="_on_timer_ataque_timeout"]
