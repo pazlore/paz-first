@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cksawnykiuy2k"]
+
+[ext_resource type="Script" uid="uid://eel5bwwa1e00" path="res://escenas/nivel_0/moneda.gd" id="1_a64w2"]
+[ext_resource type="Texture2D" uid="uid://bl3cofh07rq87" path="res://assets/texturas/fotos/amongus.jpeg" id="2_aojo4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_18kb5"]
+size = Vector2(37.75, 28)
+
+[node name="Moneda" type="Area2D"]
+script = ExtResource("1_a64w2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(84.5, 517)
+scale = Vector2(0.164444, 0.124444)
+texture = ExtResource("2_aojo4")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(84.875, 517)
+shape = SubResource("RectangleShape2D_18kb5")
+debug_color = Color(0.498262, 0.581844, 1.92523e-07, 0.42)
+metadata/_edit_group_ = true
