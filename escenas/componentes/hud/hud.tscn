@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://ctb7yow20eyxp"]
 
-[ext_resource type="Script" uid="uid://dv6o7sjlg84al" path="res://escenas/componentes/ui/hud/hud.gd" id="1_u1fp6"]
+[ext_resource type="Script" uid="uid://dv6o7sjlg84al" path="res://escenas/componentes/hud/hud.gd" id="1_u1fp6"]
 [ext_resource type="Texture2D" uid="uid://bl3cofh07rq87" path="res://assets/texturas/fotos/amongus.jpeg" id="2_u1fp6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ch5vc"]

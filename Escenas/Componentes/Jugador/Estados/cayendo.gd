@@ -4,7 +4,7 @@ func enter():
 	jugador.sprite.play("Cayendo")
 
 func physics_update(delta):
-	jugador.velocity.y=jugador.gravedad * delta
+	jugador.velocity.y=jugador.gravedad
 	
 	var direccion = Input.get_axis("mov_izquierda", "mov_derecha")
 	jugador.velocity.x = direccion * jugador.velocidad * delta

@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cjk03mahl5vox" path="res://assets/texturas/jugador/run.png" id="4_ouxw5"]
 [ext_resource type="Script" uid="uid://c1d38yjcwttcr" path="res://escenas/componentes/maquina_estado/maquina_estado.gd" id="6_ar1kp"]
 [ext_resource type="Script" uid="uid://cs15y7tu52e4i" path="res://escenas/componentes/jugador/estados/quieto.gd" id="7_ouxw5"]
-[ext_resource type="PackedScene" uid="uid://ctb7yow20eyxp" path="res://escenas/componentes/ui/hud/hud.tscn" id="8_gk1eg"]
+[ext_resource type="PackedScene" uid="uid://ctb7yow20eyxp" path="res://escenas/componentes/hud/hud.tscn" id="8_gk1eg"]
 [ext_resource type="Script" uid="uid://b2isp7ehsjndr" path="res://escenas/componentes/jugador/estados/saltando.gd" id="8_udejt"]
 [ext_resource type="Script" uid="uid://dsmisnonn6qb0" path="res://escenas/componentes/jugador/estados/corriendo.gd" id="9_y0sdt"]
 [ext_resource type="Script" uid="uid://cufienocoaf1f" path="res://escenas/componentes/jugador/estados/atacando.gd" id="10_lde6h"]

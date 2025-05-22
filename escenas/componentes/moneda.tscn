@@ -10,13 +10,11 @@ size = Vector2(37.75, 28)
 script = ExtResource("1_a64w2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(84.5, 517)
 scale = Vector2(0.164444, 0.124444)
 texture = ExtResource("2_aojo4")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(84.875, 517)
 shape = SubResource("RectangleShape2D_18kb5")
 debug_color = Color(0.498262, 0.581844, 1.92523e-07, 0.42)
 metadata/_edit_group_ = true
